@@ -1,0 +1,119 @@
+:root {
+  --verde-oliva: #618030;
+  --azul-profundo: #337A9E;
+  --creme: #EEE9C1;
+  --amarelo-dourado: #FCD760;
+  --dourado-escuro: #E4AE1E;
+  --terracota: #D97E5C;
+  --marrom-queimado: #A4530C;
+  --marrom-escuro: #3A230A;
+  --fundo-escuro: #1a120b;
+  
+  /* Cores do Papel de Cordel */
+  --papel-cordel: #e8dcc4;
+  --tinta-cordel: #2b1d12;
+
+  --fonte-titulo: 'Cinzel', serif;
+  --fonte-texto: 'Spectral', serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  /* Fundo claro, textura de papel */
+  background-color: var(--papel-cordel);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  color: var(--tinta-cordel);
+  font-family: var(--fonte-texto);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-weight: 900;
+  color: var(--tinta-cordel);
+}
+
+p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--marrom-queimado);
+  outline-offset: 4px;
+}
+
+section {
+  scroll-margin-top: 60px;
+}
+
+#root {
+  isolation: isolate;
+}
+
+/* Elementos de Cordel */
+.xilogravura {
+  filter: grayscale(100%) contrast(300%) brightness(0.6);
+  mix-blend-mode: multiply;
+}
+
+.cordel-frame {
+  border: 3px double var(--tinta-cordel);
+  background-color: var(--creme);
+  color: var(--tinta-cordel);
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: 8px 8px 0 rgba(43, 29, 18, 0.4); /* Sombra escura no papel */
+  border-radius: 4px;
+}
+
+.cordel-frame::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(43, 29, 18, 0.2);
+  pointer-events: none;
+}
+
+.cordel-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  color: var(--tinta-cordel);
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+}
+.cordel-divider::before, .cordel-divider::after {
+  content: "";
+  height: 1px;
+  width: 50px;
+  background: var(--tinta-cordel);
+}

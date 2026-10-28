@@ -1,0 +1,5 @@
+.floating {
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}

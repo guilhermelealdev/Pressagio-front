@@ -1,0 +1,82 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 8rem 2rem 6rem;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 30%, var(--creme) 0%, var(--papel-cordel) 100%);
+}
+
+.glow {
+  display: none; /* Removemos o brilho escuro */
+}
+
+.content {
+  position: relative;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  transform: translateY(-10vh);
+}
+
+.title {
+  color: var(--tinta-cordel);
+  font-family: var(--fonte-titulo);
+  font-size: clamp(3rem, 9vw, 7rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+}
+
+.subtitle {
+  color: var(--marrom-queimado);
+  font-family: var(--fonte-texto);
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.6rem;
+  border: 2px solid var(--tinta-cordel);
+  border-radius: 2px;
+  background: var(--tinta-cordel);
+  box-shadow: 4px 4px 0 var(--marrom-queimado);
+  color: var(--amarelo-dourado);
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--marrom-queimado);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--tinta-cordel);
+}
+
+/* Imagens da capa */
+.mandacaru { position: absolute; left: -6%; top: 18%; z-index: 1; width: clamp(90px, 14vw, 190px); opacity: 0.4; }
+.cross { position: absolute; right: -4%; top: 12%; z-index: 1; width: clamp(70px, 10vw, 140px); opacity: 0.4; }
+.lantern { position: absolute; left: 8%; bottom: 8%; z-index: 1; width: clamp(60px, 8vw, 120px); opacity: 0.4; }
+.cactus { position: absolute; right: 6%; bottom: 4%; z-index: 1; width: clamp(80px, 12vw, 160px); opacity: 0.4; }
+
+@media (max-width: 768px) {
+  .hero { padding: 7rem 1.25rem 5rem; }
+  .content { transform: translateY(-18vh); gap: 1rem; }
+  .subtitle { max-width: 22rem; font-size: 0.85rem; letter-spacing: 0.12em; }
+  .cta { padding: 0.9rem 2.1rem; font-size: 0.85rem; }
+}
