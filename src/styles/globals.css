@@ -7,98 +7,106 @@
   --terracota: #D97E5C;
   --marrom-queimado: #A4530C;
   --marrom-escuro: #3A230A;
-  --fundo-escuro: #1a120b;
   
-  /* Cores do Papel de Cordel */
-  --papel-cordel: #e8dcc4;
-  --tinta-cordel: #2b1d12;
+  --fundo-abissal: #0a0705;
+  --fundo-escuro: #14100c;
+  --tinta-cordel: #1c1511;
+  --texto-livro: #d4cbb3;
 
   --fonte-titulo: 'Cinzel', serif;
   --fonte-texto: 'Spectral', serif;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+html, body {
+  background-color: var(--fundo-abissal) !important;
+  color: var(--texto-livro);
   margin: 0;
-  min-width: 320px;
+  padding: 0;
   overflow-x: hidden;
-  /* Fundo claro, textura de papel */
-  background-color: var(--papel-cordel);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-  color: var(--tinta-cordel);
   font-family: var(--fonte-texto);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+}
+
+/* Textura de chão de terra batida e ruído */
+body {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(164, 83, 12, 0.15) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+/* Seleção de texto estilo pergaminho */
+::selection {
+  background: var(--amarelo-dourado);
+  color: var(--tinta-cordel);
 }
 
 h1, h2, h3 {
   margin: 0;
   font-family: var(--fonte-titulo);
   font-weight: 900;
-  color: var(--tinta-cordel);
+  color: var(--amarelo-dourado);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 20px rgba(164, 83, 12, 0.4);
 }
 
-p {
-  margin: 0;
-  line-height: 1.7;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button, a {
-  -webkit-tap-highlight-color: transparent;
-}
+p { margin: 0; line-height: 1.8; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button, a { -webkit-tap-highlight-color: transparent; }
 
 :focus-visible {
-  outline: 2px solid var(--marrom-queimado);
+  outline: 2px solid var(--amarelo-dourado);
   outline-offset: 4px;
 }
 
-section {
-  scroll-margin-top: 60px;
-}
-
-#root {
-  isolation: isolate;
-}
-
-/* Elementos de Cordel */
-.xilogravura {
-  filter: grayscale(100%) contrast(300%) brightness(0.6);
-  mix-blend-mode: multiply;
-}
-
+/* --- O Folheto de Cordel (Bíblia Gótica) --- */
 .cordel-frame {
-  border: 3px double var(--tinta-cordel);
-  background-color: var(--creme);
-  color: var(--tinta-cordel);
-  padding: 2.5rem;
   position: relative;
-  box-shadow: 8px 8px 0 rgba(43, 29, 18, 0.4); /* Sombra escura no papel */
+  background-color: var(--tinta-cordel);
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+  /* Borda tripla: ouro, madeira escura, ouro */
+  border: 1px solid var(--dourado-escuro);
   border-radius: 4px;
+  padding: 3rem;
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.9),
+    inset 0 0 0 2px #110b07,
+    inset 0 0 0 3px rgba(252, 215, 96, 0.3),
+    inset 0 20px 40px rgba(0,0,0,0.6);
+  color: var(--texto-livro);
 }
 
-.cordel-frame::before {
-  content: "";
+/* Cantos de metal (detalhe de xilogravura) */
+.cordel-frame::before,
+.cordel-frame::after {
+  content: '';
   position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(43, 29, 18, 0.2);
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--amarelo-dourado);
+  border-radius: 2px;
   pointer-events: none;
+}
+.cordel-frame::before {
+  top: 12px; left: 12px;
+  border-right: none; border-bottom: none;
+}
+.cordel-frame::after {
+  bottom: 12px; right: 12px;
+  border-left: none; border-top: none;
+}
+
+/* Letra Capitular (Drop Cap) nos textos */
+.drop-cap::first-letter {
+  font-family: var(--fonte-titulo);
+  float: left;
+  font-size: 4rem;
+  line-height: 0.8;
+  margin-right: 0.8rem;
+  margin-top: 0.2rem;
+  color: var(--amarelo-dourado);
+  text-shadow: 2px 2px 0 var(--marrom-queimado);
 }
 
 .cordel-divider {
@@ -106,14 +114,47 @@ section {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin: 1rem 0;
-  color: var(--tinta-cordel);
+  margin: 2rem 0;
+  color: var(--terracota);
   font-family: var(--fonte-titulo);
   font-size: 1.5rem;
 }
 .cordel-divider::before, .cordel-divider::after {
   content: "";
   height: 1px;
-  width: 50px;
-  background: var(--tinta-cordel);
+  width: 80px;
+  background: linear-gradient(90deg, transparent, var(--terracota), transparent);
+}
+
+/* --- Botões de Xilogravura com relevo --- */
+.btn-gothic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3.5rem;
+  background: linear-gradient(180deg, var(--marrom-queimado) 0%, #7a3d08 100%);
+  color: var(--creme);
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 2px solid #110b07;
+  border-radius: 3px;
+  box-shadow: 
+    0 6px 0 #110b07,
+    0 15px 30px rgba(0,0,0,0.8),
+    inset 0 2px 0 rgba(252, 215, 96, 0.4);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.btn-gothic:hover {
+  background: linear-gradient(180deg, var(--amarelo-dourado) 0%, var(--dourado-escuro) 100%);
+  color: var(--tinta-cordel);
+  box-shadow: 
+    0 2px 0 #110b07,
+    0 5px 15px rgba(0,0,0,0.8),
+    inset 0 2px 0 rgba(255, 255, 255, 0.6);
+  transform: translateY(4px);
 }

@@ -1,14 +1,11 @@
 .final {
   position: relative;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 8rem 4rem;
+  padding: 8rem 2rem;
   overflow: hidden;
-  text-align: center;
-  background: radial-gradient(ellipse at 50% 40%, var(--marrom-escuro) 0%, var(--fundo-escuro) 70%);
 }
 
 .fog {
@@ -16,55 +13,49 @@
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(circle at 20% 80%, rgba(164, 83, 12, 0.15), transparent 42%),
-    radial-gradient(circle at 80% 20%, rgba(252, 215, 96, 0.1), transparent 46%);
+    radial-gradient(circle at 50% 80%, rgba(164, 83, 12, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 20% 20%, rgba(51, 122, 158, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(252, 215, 96, 0.08) 0%, transparent 40%);
   pointer-events: none;
 }
 
-.content {
+.contentWrapper {
   position: relative;
   z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.9));
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  max-width: 1000px; /* Mais larga */
-  width: 100%;
+  text-align: center;
+  padding: 4rem 3rem;
+  background-color: #150e08; 
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
 }
 
-.owl { width: clamp(60px, 8vw, 90px); opacity: 0.8; margin-top: 1rem; }
-.title { color: var(--tinta-cordel); font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1.15; }
-.subtitle { max-width: 38rem; color: var(--tinta-cordel); font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.7; }
-
-.cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.8rem;
-  border: 2px solid var(--tinta-cordel);
-  border-radius: 2px;
-  background: var(--marrom-escuro);
-  box-shadow: 4px 4px 0 var(--tinta-cordel);
-  color: var(--amarelo-dourado);
-  font-family: var(--fonte-titulo);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
-  margin-top: 1rem;
+.owl {
+  width: clamp(70px, 10vw, 110px);
+  margin-bottom: 2rem;
 }
 
-.cta:hover {
-  background: var(--tinta-cordel);
-  color: var(--papel-cordel);
-  box-shadow: 2px 2px 0 var(--marrom-escuro);
-  transform: translate(2px, 2px);
+.title { color: var(--amarelo-dourado); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
+.subtitle { max-width: 38rem; color: var(--texto-livro); font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.8; margin: 0 auto; }
+
+.small {
+  max-width: 34rem;
+  margin-top: 2.5rem;
+  color: var(--terracota);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
 }
 
-.small { max-width: 34rem; margin-top: 1rem; color: var(--marrom-queimado); font-size: 0.85rem; font-style: italic; font-weight: 600; }
-
-.decorA { position: absolute; left: 2%; top: 16%; width: clamp(100px, 14vw, 200px); opacity: 0.1; }
-.decorC { position: absolute; right: 2%; top: 12%; width: clamp(50px, 6vw, 90px); opacity: 0.1; }
-
-@media (max-width: 768px) { .final { padding: 6rem 1.25rem; } }
+/* Elementos restaurados */
+.decorA { position: absolute; left: 0%; top: 10%; width: clamp(100px, 15vw, 200px); opacity: 0.1; z-index: 0; }
+.decorC { position: absolute; right: 0%; bottom: 10%; width: clamp(80px, 12vw, 150px); opacity: 0.1; z-index: 0; }

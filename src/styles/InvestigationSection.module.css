@@ -1,67 +1,41 @@
 .investigation {
   position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 8rem 2rem;
-  overflow: hidden;
-  background: radial-gradient(ellipse at 30% 30%, var(--marrom-queimado) 0%, var(--fundo-escuro) 65%);
+  padding: 8rem 4rem;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    radial-gradient(circle at 80% 20%, rgba(252, 215, 96, 0.06), transparent 45%),
-    radial-gradient(circle at 20% 80%, rgba(164, 83, 12, 0.1), transparent 45%);
-  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(10, 7, 5, 0.7) 0%, rgba(10, 7, 5, 0.95) 100%);
 }
 
 .inner {
   position: relative;
-  z-index: 3;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
   width: 100%;
   max-width: 1100px;
   text-align: center;
 }
 
-.label {
-  color: var(--terracota);
-  font-family: var(--fonte-texto);
-  font-size: 0.85rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-}
-
-.title {
-  color: var(--creme);
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  margin-bottom: 1rem;
-}
-
-.lead {
-  max-width: 44rem;
-  color: rgba(238, 233, 193, 0.9);
-  font-size: clamp(1rem, 1.6vw, 1.2rem);
-  margin-bottom: 2rem;
-}
-
-.highlight {
-  color: var(--marrom-queimado);
-  font-weight: 600;
-}
+.title { color: var(--amarelo-dourado); font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 1rem; }
+.lead { max-width: 44rem; color: var(--creme); font-size: clamp(1rem, 1.6vw, 1.2rem); margin-bottom: 3rem; }
+.highlight { color: var(--terracota); font-weight: 600; }
 
 .timeline {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
   width: 100%;
+  margin-bottom: 3rem;
 }
 
 .card {
@@ -69,17 +43,17 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1.5rem;
-  border: 1px solid rgba(228, 174, 30, 0.3);
-  border-radius: 4px;
-  background: rgba(26, 18, 11, 0.8);
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  border: 1px solid rgba(252, 215, 96, 0.2);
+  background: rgba(20, 16, 12, 0.8);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.5);
   text-align: left;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   border-color: var(--amarelo-dourado);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 15px 40px rgba(164, 83, 12, 0.3);
 }
 
 .cardHeader {
@@ -91,63 +65,18 @@
 }
 
 .dayNumber {
-  color: var(--fundo-escuro);
-  background: var(--terracota);
+  color: var(--tinta-cordel);
+  background: var(--amarelo-dourado);
   font-family: var(--fonte-titulo);
   font-size: 0.8rem;
   padding: 0.2rem 0.6rem;
-  border-radius: 2px;
   font-weight: bold;
 }
 
-.dayTitle {
-  color: var(--amarelo-dourado);
-  font-family: var(--fonte-titulo);
-  font-size: 1.1rem;
-}
+.dayTitle { color: var(--creme); font-family: var(--fonte-titulo); font-size: 1.1rem; }
+.dayText { color: var(--texto-livro); font-size: 0.95rem; }
 
-.dayText {
-  color: rgba(238, 233, 193, 0.85);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.closing {
-  color: var(--tinta-cordel);
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
-  line-height: 1.8;
-  text-align: center;
-}
-
-.decorRadio {
-  position: absolute;
-  left: -5%;
-  top: 15%;
-  width: clamp(90px, 12vw, 180px);
-  opacity: 0.15;
-}
-
-.decorFita {
-  position: absolute;
-  right: -4%;
-  bottom: 12%;
-  width: clamp(70px, 9vw, 140px);
-  opacity: 0.15;
-}
-
-.decorCoruja {
-  position: absolute;
-  right: 5%;
-  top: 10%;
-  width: clamp(60px, 8vw, 110px);
-  opacity: 0.15;
-}
-
-@media (max-width: 768px) {
-  .investigation {
-    padding: 6rem 1.25rem;
-  }
-  .timeline {
-    grid-template-columns: 1fr;
-  }
-}
+/* Elementos perdidos restaurados */
+.decorRadio { position: absolute; left: 0%; top: 10%; z-index: 1; width: clamp(100px, 15vw, 200px); opacity: 0.1; }
+.decorFita { position: absolute; right: 0%; bottom: 10%; z-index: 1; width: clamp(80px, 12vw, 150px); opacity: 0.1; }
+.decorCoruja { position: absolute; right: 5%; top: 5%; z-index: 1; width: clamp(60px, 8vw, 120px); opacity: 0.1; }

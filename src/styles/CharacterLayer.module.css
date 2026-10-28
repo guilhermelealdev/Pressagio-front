@@ -1,7 +1,7 @@
 .layer {
   position: fixed;
   inset: 0;
-  z-index: 1; /* Alterado de 10 para 1. Agora fica atrás de tudo! */
+  z-index: 1; /* Atrás do main (que é 10) */
   overflow: hidden;
   pointer-events: none;
 }
@@ -18,30 +18,36 @@
 }
 
 .character img {
-  width: 22vw;
-  height: 65vh;
+  width: 18vw; /* Mais discreto */
+  height: 55vh;
   object-fit: contain;
   object-position: center bottom;
   will-change: transform, opacity, filter;
-  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.9));
 }
 
 .characterName {
   margin-top: -2vh;
-  padding: 0.2rem 1rem;
-  background: rgba(26, 18, 11, 0.9);
-  border: 2px solid var(--dourado-escuro);
-  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  background: var(--tinta-cordel);
+  border: 2px solid var(--amarelo-dourado);
+  border-radius: 2px;
   color: var(--amarelo-dourado);
   font-family: var(--fonte-titulo);
-  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
   font-weight: 900;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
 }
 
 @media (max-width: 768px) {
-  .character img { width: 35vw; height: 40vh; }
-  .characterName { font-size: 0.8rem; padding: 0.1rem 0.5rem; margin-top: -1vh; }
+  .character img {
+    width: 30vw;
+    height: 40vh;
+  }
+  .characterName {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+  }
 }
