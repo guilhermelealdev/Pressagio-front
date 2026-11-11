@@ -1,7 +1,7 @@
 .ambient {
   position: fixed;
   inset: 0;
-  z-index: 3;
+  z-index: 2; /* Diminuído para ficar atrás dos personagens */
   pointer-events: none;
   overflow: hidden;
 }

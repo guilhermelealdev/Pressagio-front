@@ -1,0 +1,179 @@
+.introOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #050302;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.projectorFlash {
+  position: absolute;
+  inset: 0;
+  background: #fff7d6;
+  z-index: 60;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.filmStripLeft, .filmStripRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  background-color: #000;
+  z-index: 35;
+  background-image: radial-gradient(circle, #ddd 4px, transparent 5px);
+  background-size: 100% 30px;
+  border-right: 2px solid #222;
+  opacity: 0.8;
+  animation: rollHoles 2s linear infinite;
+}
+.filmStripLeft { left: 0; }
+.filmStripRight { right: 0; border-left: 2px solid #222; border-right: none; }
+
+.rollingFast {
+  animation: rollHoles 0.2s linear infinite;
+}
+
+@keyframes rollHoles {
+  0% { background-position: center 0px; }
+  100% { background-position: center 30px; }
+}
+
+.cinemaBarTop, .cinemaBarBottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10vh;
+  background: #000;
+  z-index: 30;
+  box-shadow: 0 0 20px rgba(0,0,0,1);
+}
+.cinemaBarTop { top: 0; border-bottom: 2px solid #111; }
+.cinemaBarBottom { bottom: 0; border-top: 2px solid #111; }
+
+.filmCounter {
+  position: absolute;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counterCircle {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 40px rgba(255,255,255,0.2);
+}
+
+.counterCrossH {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.5);
+}
+
+.counterCrossV {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: rgba(255,255,255,0.5);
+}
+
+.counterHand {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: bottom center;
+  width: 2px;
+  height: 50%;
+  background: var(--amarelo-dourado);
+  box-shadow: 0 0 10px var(--amarelo-dourado);
+}
+
+.counterNumber {
+  position: absolute;
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-size: 7rem;
+  font-weight: 900;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+
+.rollingReel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.reelItem {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reelImage {
+  width: clamp(300px, 80vw, 1000px);
+  height: auto;
+  object-fit: contain;
+}
+
+.filmGrain {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: filmFlicker 0.1s infinite;
+  pointer-events: none;
+}
+
+.scratch {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: #fff;
+  opacity: 0.4;
+  z-index: 25;
+  box-shadow: 0 0 5px rgba(255,255,255,0.8);
+}
+
+.introSubtitle {
+  position: absolute;
+  bottom: 15vh;
+  color: var(--amarelo-dourado);
+  font-family: var(--fonte-texto);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  text-transform: uppercase;
+  z-index: 15;
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 40;
+  pointer-events: none;
+}
+
+@keyframes filmFlicker {
+  0% { opacity: 0.1; transform: translateY(0); }
+  50% { opacity: 0.3; transform: translateY(-2px); }
+  100% { opacity: 0.1; transform: translateY(2px); }
+}

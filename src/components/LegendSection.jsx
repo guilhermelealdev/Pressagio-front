@@ -35,7 +35,7 @@ export default function LegendSection({ onInView }) {
             <motion.img
               src={coruja}
               alt="Coruja rasga-mortalha"
-              className={`${styles.owl} xilogravura`}
+              className={styles.owl}
               loading="lazy"
               animate={{ y: [0, -18, 0], rotate: [0, -3, 3, 0], opacity: [0.85, 1, 0.85] }}
               transition={{ repeat: Infinity, duration: 7, ease: 'easeInOut' }}

@@ -29,14 +29,12 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Textura de chão de terra batida e ruído */
 body {
   background-image: 
     radial-gradient(circle at 50% 0%, rgba(164, 83, 12, 0.15) 0%, transparent 60%),
     url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
 }
 
-/* Seleção de texto estilo pergaminho */
 ::selection {
   background: var(--amarelo-dourado);
   color: var(--tinta-cordel);
@@ -60,12 +58,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   outline-offset: 4px;
 }
 
-/* --- O Folheto de Cordel (Bíblia Gótica) --- */
 .cordel-frame {
   position: relative;
   background-color: var(--tinta-cordel);
   background-image: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 100%);
-  /* Borda tripla: ouro, madeira escura, ouro */
   border: 1px solid var(--dourado-escuro);
   border-radius: 4px;
   padding: 3rem;
@@ -77,7 +73,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   color: var(--texto-livro);
 }
 
-/* Cantos de metal (detalhe de xilogravura) */
 .cordel-frame::before,
 .cordel-frame::after {
   content: '';
@@ -97,7 +92,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border-left: none; border-top: none;
 }
 
-/* Letra Capitular (Drop Cap) nos textos */
 .drop-cap::first-letter {
   font-family: var(--fonte-titulo);
   float: left;
@@ -126,7 +120,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   background: linear-gradient(90deg, transparent, var(--terracota), transparent);
 }
 
-/* --- Botões de Xilogravura com relevo --- */
 .btn-gothic {
   display: inline-flex;
   align-items: center;
@@ -157,4 +150,67 @@ button, a { -webkit-tap-highlight-color: transparent; }
     0 5px 15px rgba(0,0,0,0.8),
     inset 0 2px 0 rgba(255, 255, 255, 0.6);
   transform: translateY(4px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, .cordel-frame, .card {
+    cursor: none !important;
+  }
+}
+
+/* =========================================
+   SCROLLBAR PERSONALIZADA (ESTILO CORDEL)
+   ========================================= */
+
+/* 1. FIREFOX (Padrão W3C) */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--marrom-queimado) var(--fundo-abissal);
+}
+
+/* 2. CHROME, EDGE, SAFARI E OPERA (Webkit) */
+::-webkit-scrollbar {
+  width: 14px; /* Mais grossa para parecer uma fita de couro */
+}
+
+/* O trilho (fundo da barra) */
+::-webkit-scrollbar-track {
+  background: var(--fundo-abissal);
+  border-left: 1px solid rgba(228, 174, 30, 0.15); /* Linha dourada sutil na lateral */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* A alça (o que você arrasta) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--marrom-queimado) 0%, #7a3d08 100%);
+  border-radius: 6px;
+  /* Cria um espaçamento nas bordas, como se fosse um pergaminho rolando */
+  border: 3px solid var(--fundo-abissal); 
+  box-shadow: 
+    inset 0 0 6px rgba(0, 0, 0, 0.6), 
+    0 0 10px rgba(164, 83, 12, 0.3);
+  transition: background 0.3s ease;
+}
+
+/* A alça ao passar o mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--dourado-escuro) 0%, var(--marrom-queimado) 100%);
+  box-shadow: 
+    inset 0 0 6px rgba(0, 0, 0, 0.4), 
+    0 0 15px rgba(252, 215, 96, 0.5);
+}
+
+/* A alça enquanto você está clicando e arrastando */
+::-webkit-scrollbar-thumb:active {
+  background: var(--amarelo-dourado);
+}
+
+/* Os botões (setinhas) no topo e no fundo da barra */
+::-webkit-scrollbar-button {
+  display: none; /* Esconde as setinhas padrão feias */
+}
+
+/* O canto onde a barra vertical e horizontal se encontram */
+::-webkit-scrollbar-corner {
+  background: var(--fundo-abissal);
 }

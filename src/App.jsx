@@ -1,14 +1,20 @@
 import { useCallback, useState } from 'react';
+import { motion } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import CharacterSection from './components/CharacterSection';
 import LegendSection from './components/LegendSection';
-import InvestigationSection from './components/InvestigationSection';
+import EvidenceSection from './components/EvidenceSection';
+import TimelineSection from './components/TimelineSection';
 import FinalSection from './components/FinalSection';
 import CharacterLayer from './components/CharacterLayer';
 import Atmosphere from './components/Atmosphere';
 import AmbientDecor from './components/AmbientDecor';
+import Intro from './components/Intro';
+import Footer from './components/Footer';
+import LanternCursor from './components/LanternCursor';
+import Fireflies from './components/Fireflies'; // <-- IMPORT DO NOVO COMPONENTE
 import { heroBg, aboutBg } from './assets';
 
 const characters = [
@@ -19,33 +25,53 @@ const characters = [
 
 export default function App() {
   const [activeScene, setActiveScene] = useState(0);
+  const [introFinished, setIntroFinished] = useState(false);
+  
   const handleScene = useCallback((scene) => setActiveScene(scene), []);
 
   return (
     <>
-      <AmbientDecor />
-      <Atmosphere />
-      <Header />
-      <CharacterLayer activeScene={activeScene} />
-      <main style={{ position: 'relative', zIndex: 10 }}>
-        <Hero onInView={handleScene} />
-        <About onInView={handleScene} backgroundImage={aboutBg} />
-        {characters.map((character, index) => (
-          <CharacterSection
-            key={character.title}
-            title={character.title}
-            subtitle={character.subtitle}
-            description={character.description}
-            index={index}
-            scene={index + 2}
-            onInView={handleScene}
-            backgroundImage={heroBg}
-          />
-        ))}
-        <LegendSection onInView={handleScene} />
-        <InvestigationSection onInView={handleScene} />
-        <FinalSection onInView={handleScene} />
-      </main>
+      {!introFinished && <Intro onComplete={() => setIntroFinished(true)} />}
+      
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: introFinished ? 1 : 0 }}
+        transition={{ duration: 1.5, ease: 'easeInOut' }}
+      >
+        <AmbientDecor />
+        <Atmosphere />
+        <Fireflies /> {/* <-- VAGALUMES AQUI */}
+        <Header />
+        <CharacterLayer activeScene={activeScene} />
+        
+        <main style={{ position: 'relative', zIndex: 10 }}>
+          <Hero onInView={handleScene} />
+          <About onInView={handleScene} backgroundImage={aboutBg} />
+          
+          {characters.map((character, index) => (
+            <CharacterSection
+              key={character.title}
+              title={character.title}
+              subtitle={character.subtitle}
+              description={character.description}
+              index={index}
+              scene={index + 2}
+              onInView={handleScene}
+              backgroundImage={heroBg}
+            />
+          ))}
+
+          <LegendSection onInView={handleScene} />
+          <EvidenceSection onInView={handleScene} />
+          <TimelineSection onInView={handleScene} />
+          
+          <FinalSection onInView={handleScene} /> 
+        </main>
+
+        <Footer />
+      </motion.div>
+
+      <LanternCursor introFinished={introFinished} />
     </>
   );
 }

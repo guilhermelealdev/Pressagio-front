@@ -29,7 +29,7 @@ export default function InvestigationSection({ onInView }) {
       <div className={styles.overlay} aria-hidden="true" />
       <FloatingImage src={radio} alt="" className={`${styles.decorRadio} xilogravura`} duration={10} />
       <FloatingImage src={fita} alt="" className={`${styles.decorFita} xilogravura`} duration={8} delay={1} />
-      <FloatingImage src={coruja} alt="" className={`${styles.decorCoruja} xilogravura`} duration={12} delay={0.5} />
+      <FloatingImage src={coruja} alt="" className={styles.decorCoruja} duration={12} delay={0.5} />
 
       <div className={styles.inner}>
         <motion.span className={styles.label} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>

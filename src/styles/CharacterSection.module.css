@@ -4,30 +4,70 @@
   display: flex;
   align-items: center;
   min-height: 100vh;
-  padding: 8rem 4rem 6rem;
+  padding: 10rem 4rem 10rem; /* Aumentei o padding para dar espaço ao fade */
   overflow: hidden;
 }
 
-.overlay {
+.bg {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(10, 7, 5, 0.95) 0%, rgba(10, 7, 5, 0.6) 50%, rgba(10, 7, 5, 0.1) 100%);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+/* GRADIENTE LATERAL (Sombra para o texto) */
+.section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%; 
+  height: 100%;
+  background: linear-gradient(90deg, rgba(10, 7, 5, 0.95) 0%, rgba(10, 7, 5, 0.7) 70%, rgba(10, 7, 5, 0) 100%);
+  z-index: 4; 
+  pointer-events: none;
+}
+
+/* GRADIENTE DE TRANSIÇÃO (TOPO E BASE) */
+.fadeTop, .fadeBottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.fadeTop {
+  top: 0;
+  background: linear-gradient(to bottom, var(--fundo-abissal) 0%, transparent 100%);
+}
+
+.fadeBottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--fundo-abissal) 0%, transparent 100%);
 }
 
 .inner {
   position: relative;
-  z-index: 10;
+  z-index: 10; 
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 4rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
-.text { display: flex; flex-direction: column; gap: 0.5rem; max-width: 100%; }
+.text { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 0.5rem; 
+  max-width: 100%; 
+  grid-column: 1 / 2;
+}
 
 .index {
   color: var(--tinta-cordel);
@@ -47,18 +87,26 @@
 .title { color: var(--amarelo-dourado); font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin: 0; }
 .description { color: var(--texto-livro); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.8; }
 
-/* Decorações com destaque e sombra real */
-.decorA { position: absolute; left: 2%; top: 15%; z-index: 1; width: clamp(120px, 18vw, 250px); opacity: 0.6; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9)); }
-.decorB { position: absolute; right: 2%; bottom: 10%; z-index: 1; width: clamp(100px, 15vw, 200px); opacity: 0.5; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9)); }
+.decorA { position: absolute; left: 2%; top: 15%; z-index: 1; width: clamp(120px, 18vw, 250px); opacity: 0.15; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9)); pointer-events: none; }
+.decorB { position: absolute; right: 2%; bottom: 10%; z-index: 1; width: clamp(100px, 15vw, 200px); opacity: 0.1; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.9)); pointer-events: none; }
 
 @media (max-width: 1024px) {
-  .section { padding: 8rem 2rem 6rem; }
+  .section { padding: 8rem 2rem 10rem; }
   .inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
 }
 
 @media (max-width: 768px) {
-  .section { align-items: flex-start; padding: 7rem 1.25rem 40vh; }
+  .section { 
+    align-items: flex-start; 
+    padding: 7rem 1.25rem 45vh; 
+  }
+  .section::after {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(10, 7, 5, 0.95) 0%, rgba(10, 7, 5, 0.8) 60%, rgba(10, 7, 5, 0) 100%);
+  }
   .inner { grid-template-columns: 1fr; }
-  .text { align-items: center; text-align: center; padding: 2rem !important; }
+  .text { align-items: center; text-align: center; padding: 2rem 1.5rem !important; grid-column: auto; }
   .index { align-self: center; }
+  .title { font-size: clamp(2rem, 8vw, 2.5rem); }
+  .description { font-size: 1rem; }
 }

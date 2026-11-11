@@ -5,7 +5,6 @@ import { bandeirinha, lantern, cross } from '../assets';
 export default function AmbientDecor() {
   return (
     <div className={styles.ambient} aria-hidden="true">
-      {/* Bandeirinhas no topo */}
       <motion.img 
         src={bandeirinha} 
         className={styles.topBanner} 
@@ -14,7 +13,6 @@ export default function AmbientDecor() {
         transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }} 
       />
       
-      {/* Lanterna Esquerda */}
       <motion.img 
         src={lantern} 
         className={styles.leftLantern} 
@@ -23,10 +21,8 @@ export default function AmbientDecor() {
         transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }} 
       />
       
-      {/* Cruz Direita */}
       <img src={cross} className={styles.rightCross} alt="" />
       
-      {/* Vinheta escura nas bordas */}
       <div className={styles.vignette} />
     </div>
   );

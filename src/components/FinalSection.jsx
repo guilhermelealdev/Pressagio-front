@@ -10,9 +10,23 @@ export default function FinalSection({ onInView }) {
 
   useEffect(() => {
     if (inView) {
-      onInView(7);
+      onInView(8);
     }
   }, [inView, onInView]);
+
+  const blinkVariants = {
+    open: { opacity: 1, scaleY: 1 },
+    blink: {
+      opacity: [1, 1, 0.2, 1, 1],
+      scaleY: [1, 1, 0.1, 1, 1],
+      transition: {
+        repeat: Infinity,
+        duration: 5,
+        times: [0, 0.85, 0.9, 0.95, 1],
+        ease: "easeInOut"
+      }
+    }
+  };
 
   return (
     <section id="jogar" ref={ref} className={styles.final}>
@@ -28,21 +42,33 @@ export default function FinalSection({ onInView }) {
         transition={{ duration: 1, type: 'spring', bounce: 0.4 }}
       >
         <div className={`${styles.content} cordel-frame`}>
-          <motion.img
-            src={coruja}
-            alt=""
-            className={styles.owl}
-            animate={{ 
-              y: [0, -10, 0], 
-              opacity: [0.6, 1, 0.6],
-              filter: [
-                'drop-shadow(0 0 10px rgba(252, 215, 96, 0.2))',
-                'drop-shadow(0 0 30px rgba(252, 215, 96, 0.8))',
-                'drop-shadow(0 0 10px rgba(252, 215, 96, 0.2))'
-              ]
-            }}
-            transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-          />
+          
+          <div className={styles.owlContainer}>
+            <motion.div 
+              className={styles.floatingOwl}
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
+            >
+              <img
+                src={coruja}
+                alt="Coruja nas sombras"
+                className={styles.owl}
+              />
+              
+              <motion.div 
+                className={`${styles.eye} ${styles.eyeLeft}`}
+                variants={blinkVariants}
+                initial="open"
+                animate="blink"
+              />
+              <motion.div 
+                className={`${styles.eye} ${styles.eyeRight}`}
+                variants={blinkVariants}
+                initial="open"
+                animate="blink"
+              />
+            </motion.div>
+          </div>
 
           <h2 className={styles.title}>Sua última aventura começa aqui.</h2>
           

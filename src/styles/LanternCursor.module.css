@@ -1,0 +1,54 @@
+.lightBeam {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80vw;
+  height: 80vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(252, 215, 96, 0.15) 0%, rgba(164, 83, 12, 0.08) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: screen;
+  margin-left: -40vw;
+  margin-top: -40vw;
+}
+
+.lightFlicker {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(252, 215, 96, 0.2) 0%, transparent 60%);
+  animation: flicker 0.15s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.03); }
+}
+
+.lanternWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70px; 
+  height: 140px;
+  pointer-events: none;
+  z-index: 10001;
+  filter: drop-shadow(10px 20px 20px rgba(0, 0, 0, 0.9));
+  margin-left: -35px; 
+  margin-top: -15px; 
+  transform-origin: 50% 10%; /* Rotação na alça */
+}
+
+.lanternImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(1.2) drop-shadow(0 0 20px rgba(252, 215, 96, 0.6));
+}
+
+@media (max-width: 768px) {
+  .lightBeam, .lanternWrapper {
+    display: none;
+  }
+}

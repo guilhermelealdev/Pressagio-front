@@ -10,106 +10,52 @@ const characters = [
 ];
 
 const positions = [
-  [
-    { left: '25%', bottom: '0%', scale: 1, opacity: 1, blur: 0 },
-    { left: '50%', bottom: '0%', scale: 1.1, opacity: 1, blur: 0 },
-    { left: '75%', bottom: '0%', scale: 1, opacity: 1, blur: 0 }
-  ],
-  [
-    { left: '10%', bottom: '10%', scale: 0.6, opacity: 0.2, blur: 8 },
-    { left: '20%', bottom: '5%', scale: 0.5, opacity: 0.2, blur: 8 },
-    { left: '30%', bottom: '0%', scale: 0.4, opacity: 0.1, blur: 10 }
-  ],
-  [
-    { left: '75%', bottom: '0%', scale: 1.2, opacity: 1, blur: 0 }, // Foco
-    { left: '88%', bottom: '5%', scale: 0.7, opacity: 0.3, blur: 6 },
-    { left: '62%', bottom: '-5%', scale: 0.6, opacity: 0.2, blur: 8 }
-  ],
-  [
-    { left: '88%', bottom: '-5%', scale: 0.6, opacity: 0.2, blur: 8 },
-    { left: '75%', bottom: '0%', scale: 1.2, opacity: 1, blur: 0 }, // Foco
-    { left: '62%', bottom: '5%', scale: 0.7, opacity: 0.3, blur: 6 }
-  ],
-  [
-    { left: '88%', bottom: '0%', scale: 0.4, opacity: 0.2, blur: 8 },
-    { left: '62%', bottom: '5%', scale: 0.6, opacity: 0.3, blur: 6 },
-    { left: '75%', bottom: '0%', scale: 1.2, opacity: 1, blur: 0 } // Foco
-  ],
-  [
-    { left: '5%', bottom: '0%', scale: 0.35, opacity: 0.1, blur: 12 },
-    { left: '90%', bottom: '0%', scale: 0.35, opacity: 0.1, blur: 12 },
-    { left: '50%', bottom: '-5%', scale: 0.3, opacity: 0.1, blur: 12 }
-  ],
-  [
-    { left: '0%', bottom: '0%', scale: 0.3, opacity: 0.1, blur: 12 },
-    { left: '92%', bottom: '0%', scale: 0.3, opacity: 0.1, blur: 12 },
-    { left: '46%', bottom: '0%', scale: 0.3, opacity: 0.1, blur: 12 }
-  ],
-  [
-    { left: '8%', bottom: '0%', scale: 0.7, opacity: 0.5, blur: 3 },
-    { left: '85%', bottom: '0%', scale: 0.7, opacity: 0.5, blur: 3 },
-    { left: '50%', bottom: '8%', scale: 0.8, opacity: 0.6, blur: 3 }
-  ]
+  // 0 - Hero
+  [ { left: '10%', bottom: '-10%', scale: 1, opacity: 0.1, blur: 5 }, { left: '50%', bottom: '-10%', scale: 1, opacity: 0.1, blur: 5 }, { left: '90%', bottom: '-10%', scale: 1, opacity: 0.1, blur: 5 } ],
+  // 1 - About
+  [ { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 } ],
+  // 2 - Rafael
+  [ { left: '65%', bottom: '5%', scale: 1, opacity: 1, blur: 0 }, { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 } ],
+  // 3 - Maria Clara
+  [ { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '65%', bottom: '5%', scale: 1, opacity: 1, blur: 0 }, { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 } ],
+  // 4 - Avó
+  [ { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '80%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '65%', bottom: '5%', scale: 1, opacity: 1, blur: 0 } ],
+  // 5 - Legend
+  [ { left: '85%', bottom: '0%', scale: 0.4, opacity: 0, blur: 10 }, { left: '85%', bottom: '0%', scale: 0.4, opacity: 0, blur: 10 }, { left: '85%', bottom: '0%', scale: 0.4, opacity: 0, blur: 10 } ],
+  // 6 - Evidence
+  [ { left: '90%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '90%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '90%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 } ],
+  // 7 - Timeline
+  [ { left: '90%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '90%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '90%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 } ],
+  // 8 - Final
+  [ { left: '15%', bottom: '0%', scale: 0.8, opacity: 0.9, blur: 0 }, { left: '85%', bottom: '0%', scale: 0.8, opacity: 0.9, blur: 0 }, { left: '50%', bottom: '5%', scale: 0.9, opacity: 1, blur: 0 } ]
 ];
 
 const mobilePositions = [
-  [
-    { left: '2%', bottom: '0%', scale: 0.9, opacity: 1, blur: 0 },
-    { left: '33%', bottom: '0%', scale: 1, opacity: 1, blur: 0 },
-    { left: '64%', bottom: '0%', scale: 0.9, opacity: 1, blur: 0 }
-  ],
-  [
-    { left: '2%', bottom: '5%', scale: 0.5, opacity: 0.2, blur: 6 },
-    { left: '15%', bottom: '0%', scale: 0.45, opacity: 0.2, blur: 8 },
-    { left: '28%', bottom: '0%', scale: 0.4, opacity: 0.1, blur: 8 }
-  ],
-  [
-    { left: '40%', bottom: '0%', scale: 1, opacity: 1, blur: 0 },
-    { left: '0%', bottom: '0%', scale: 0.6, opacity: 0.3, blur: 5 },
-    { left: '70%', bottom: '0%', scale: 0.5, opacity: 0.2, blur: 6 }
-  ],
-  [
-    { left: '0%', bottom: '0%', scale: 0.6, opacity: 0.3, blur: 5 },
-    { left: '40%', bottom: '0%', scale: 1, opacity: 1, blur: 0 },
-    { left: '70%', bottom: '0%', scale: 0.5, opacity: 0.2, blur: 6 }
-  ],
-  [
-    { left: '0%', bottom: '0%', scale: 0.5, opacity: 0.2, blur: 6 },
-    { left: '70%', bottom: '0%', scale: 0.5, opacity: 0.3, blur: 5 },
-    { left: '40%', bottom: '0%', scale: 1, opacity: 1, blur: 0 }
-  ],
-  [
-    { left: '0%', bottom: '0%', scale: 0.35, opacity: 0.1, blur: 10 },
-    { left: '80%', bottom: '0%', scale: 0.35, opacity: 0.1, blur: 10 },
-    { left: '40%', bottom: '0%', scale: 0.3, opacity: 0.1, blur: 10 }
-  ],
-  [
-    { left: '0%', bottom: '0%', scale: 0.28, opacity: 0.1, blur: 10 },
-    { left: '82%', bottom: '0%', scale: 0.28, opacity: 0.1, blur: 10 },
-    { left: '42%', bottom: '0%', scale: 0.28, opacity: 0.1, blur: 10 }
-  ],
-  [
-    { left: '0%', bottom: '0%', scale: 0.65, opacity: 0.45, blur: 2 },
-    { left: '70%', bottom: '0%', scale: 0.65, opacity: 0.45, blur: 2 },
-    { left: '35%', bottom: '5%', scale: 0.75, opacity: 0.55, blur: 2 }
-  ]
+  [ { left: '15%', bottom: '-5%', scale: 0.8, opacity: 0.15, blur: 5 }, { left: '50%', bottom: '-5%', scale: 0.9, opacity: 0.15, blur: 5 }, { left: '85%', bottom: '-5%', scale: 0.8, opacity: 0.15, blur: 5 } ],
+  [ { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 } ],
+  [ { left: '15%', bottom: '2%', scale: 0.9, opacity: 0.8, blur: 0 }, { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 } ],
+  [ { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '15%', bottom: '2%', scale: 0.9, opacity: 0.8, blur: 0 }, { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 } ],
+  [ { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.5, opacity: 0, blur: 10 }, { left: '15%', bottom: '2%', scale: 0.9, opacity: 0.8, blur: 0 } ],
+  [ { left: '50%', bottom: '0%', scale: 0.4, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.4, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.4, opacity: 0, blur: 10 } ],
+  [ { left: '50%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 } ],
+  [ { left: '50%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 }, { left: '50%', bottom: '0%', scale: 0.3, opacity: 0, blur: 10 } ],
+  [ { left: '15%', bottom: '0%', scale: 0.7, opacity: 0.8, blur: 0 }, { left: '85%', bottom: '0%', scale: 0.7, opacity: 0.8, blur: 0 }, { left: '50%', bottom: '2%', scale: 0.8, opacity: 1, blur: 0 } ]
 ];
 
 export default function CharacterLayer({ activeScene }) {
-  const [isMobile, setIsMobile] = useState(
-    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
-  );
   const characterRefs = useRef([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-    const handleChange = (event) => setIsMobile(event.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    const checkMobile = () => setIsMobile(window.matchMedia('(max-width: 768px)').matches);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
     const handleMouseMove = (event) => {
+      if (isMobile) return;
       const { innerWidth, innerHeight } = window;
       characterRefs.current.forEach((element, index) => {
         if (!element) return;
@@ -121,50 +67,58 @@ export default function CharacterLayer({ activeScene }) {
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [isMobile]);
 
-  const activePositions = isMobile ? mobilePositions : positions;
-  const currentPositions = activePositions[activeScene] || activePositions[0];
+  const currentPositions = (isMobile ? mobilePositions : positions)[activeScene] || positions[0];
 
   return (
     <div className={styles.layer} aria-hidden="true">
       {characters.map((char, index) => {
         const position = currentPositions[index];
-
+        
         return (
           <motion.div
             key={index}
-            ref={(element) => {
-              characterRefs.current[index] = element;
-            }}
+            ref={(el) => { characterRefs.current[index] = el; }}
             className={styles.character}
             initial={false}
-            animate={{
-              left: position.left,
-              bottom: position.bottom,
-              y: [0, -15, 0]
+            animate={{ 
+              left: position.left, 
+              bottom: position.bottom, 
+              y: position.opacity > 0 && !isMobile ? [0, -10, 0] : 0
             }}
             transition={{
-              left: { type: 'spring', stiffness: 80, damping: 20 },
-              bottom: { type: 'spring', stiffness: 80, damping: 20 },
-              y: { repeat: Infinity, duration: 4, ease: 'easeInOut' }
+              left: { type: 'spring', stiffness: 60, damping: 20 },
+              bottom: { type: 'spring', stiffness: 60, damping: 20 },
+              y: { repeat: Infinity, duration: 4, ease: 'easeInOut' },
+              opacity: { duration: 0.8, ease: 'easeInOut' }
             }}
           >
+            <motion.div 
+              className={styles.characterGlow}
+              animate={{ opacity: position.opacity === 1 ? 1 : 0 }}
+              transition={{ duration: 0.8 }}
+            />
+            
             <motion.img
               src={char.src}
               alt=""
               draggable={false}
               animate={{ 
                 scale: position.scale, 
-                opacity: position.opacity,
-                filter: `blur(${position.blur}px)`
+                opacity: position.opacity, 
+                filter: `blur(${position.blur}px)` 
               }}
-              transition={{ type: 'spring', stiffness: 80, damping: 20, filter: { duration: 0.5 } }}
+              transition={{ 
+                scale: { type: 'spring', stiffness: 60, damping: 20 },
+                opacity: { duration: 0.8, ease: 'easeInOut' },
+                filter: { duration: 0.8, ease: 'easeInOut' }
+              }}
             />
             <motion.span 
               className={styles.characterName}
-              animate={{ opacity: position.blur === 0 ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
+              animate={{ opacity: position.opacity === 1 ? 1 : 0 }}
+              transition={{ duration: 0.8 }}
             >
               {char.name}
             </motion.span>

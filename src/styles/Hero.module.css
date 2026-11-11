@@ -16,28 +16,26 @@
   transform: translate(-50%, -50%);
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle, rgba(164, 83, 12, 0.2) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(164, 83, 12, 0.15) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
 .content {
   position: relative;
-  z-index: 12;
+  z-index: 20;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.title {
-  color: var(--creme);
-  font-family: var(--fonte-titulo);
-  font-size: clamp(4rem, 11vw, 9rem);
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  margin-bottom: 1rem;
+.title { 
+  width: clamp(280px, 80vw, 900px); 
+  height: auto; 
+  object-fit: contain; 
+  margin-bottom: 1rem; 
+  filter: drop-shadow(0 0 30px rgba(252, 215, 96, 0.3)) drop-shadow(0 15px 40px rgba(0, 0, 0, 0.9)); 
 }
 
 .divider {
@@ -58,8 +56,16 @@
   margin-bottom: 3rem;
 }
 
-/* Tamanhos corrigidos, visibilidade alta e sombras pesadas */
-.mandacaru { position: absolute; left: 2%; top: 10%; z-index: 1; width: clamp(120px, 15vw, 220px); opacity: 0.8; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)); }
-.cross { position: absolute; right: 5%; top: 15%; z-index: 1; width: clamp(90px, 12vw, 160px); opacity: 0.7; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)); }
-.lantern { position: absolute; left: 10%; bottom: 5%; z-index: 1; width: clamp(80px, 10vw, 140px); opacity: 0.9; filter: drop-shadow(0 0 30px rgba(228, 174, 30, 0.6)); }
-.cactus { position: absolute; right: 8%; bottom: 8%; z-index: 1; width: clamp(100px, 14vw, 180px); opacity: 0.7; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)); }
+/* CORREÇÃO DOS ELEMENTOS GIGANTES AQUI */
+.mandacaru { position: absolute; left: 2%; top: 15%; z-index: 1; width: clamp(80px, 12vw, 180px); opacity: 0.2; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)); pointer-events: none; }
+.cross { position: absolute; right: 5%; top: 10%; z-index: 1; width: clamp(60px, 10vw, 140px); opacity: 0.2; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)); pointer-events: none; }
+.lantern { position: absolute; left: 10%; bottom: 15%; z-index: 1; width: clamp(50px, 8vw, 100px); opacity: 0.4; filter: drop-shadow(0 0 30px rgba(228, 174, 30, 0.6)); pointer-events: none; }
+.cactus { position: absolute; right: 8%; bottom: 10%; z-index: 1; width: clamp(70px, 11vw, 150px); opacity: 0.2; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)); pointer-events: none; }
+
+@media (max-width: 768px) {
+  .hero { padding: 6rem 1rem 4rem; }
+  .mandacaru { width: 80px; left: -5%; top: 10%; }
+  .cross { width: 60px; right: -5%; top: 10%; }
+  .lantern { width: 50px; left: 5%; bottom: 10%; }
+  .cactus { width: 70px; right: 5%; bottom: 5%; }
+}

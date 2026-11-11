@@ -1,0 +1,18 @@
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: 8; /* Acima do fundo, abaixo do texto e da lanterna */
+  pointer-events: none; /* Permite clicar através dos vagalumes */
+  overflow: hidden;
+}
+
+.firefly {
+  position: absolute;
+  background-color: #FCD760; /* Amarelo dourado */
+  border-radius: 50%;
+  /* Dupla camada de sombra para criar um halo de luz orgânico */
+  box-shadow: 
+    0 0 8px 2px rgba(252, 215, 96, 0.8),
+    0 0 15px 4px rgba(97, 128, 48, 0.4); /* Leve tom verde-oliva do sertão */
+  filter: blur(0.5px); /* Tira o aspecto de "bolinha dura" */
+}

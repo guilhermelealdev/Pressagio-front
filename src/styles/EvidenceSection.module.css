@@ -1,0 +1,87 @@
+.evidence {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 10rem 4rem;
+}
+
+/* FADES DE TRANSIÇÃO */
+.evidence::before, .evidence::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 5;
+  pointer-events: none;
+}
+.evidence::before { top: 0; background: linear-gradient(to bottom, var(--fundo-abissal) 0%, transparent 100%); }
+.evidence::after { bottom: 0; background: linear-gradient(to top, var(--fundo-abissal) 0%, transparent 100%); }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(10, 7, 5, 0.8) 0%, transparent 80%);
+}
+
+.inner { position: relative; z-index: 10; width: 100%; max-width: 1100px; text-align: center; }
+
+.title { color: var(--amarelo-dourado); font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; text-shadow: 0 0 20px rgba(252, 215, 96, 0.3); }
+.subtitle { color: var(--creme); font-size: 1.1rem; margin-bottom: 4rem; font-style: italic; opacity: 0.8; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; width: 100%; }
+
+.card {
+  background: #1a1410;
+  padding: 1.5rem;
+  border: 2px solid var(--marrom-queimado);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  border-color: var(--amarelo-dourado);
+  background: #2b2118;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(252, 215, 96, 0.2);
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: brightness(0.3) contrast(1.2);
+  mix-blend-mode: multiply;
+  transition: all 0.4s ease;
+}
+
+.card:hover img {
+  filter: brightness(1.2) contrast(1) drop-shadow(0 0 20px rgba(252, 215, 96, 0.6));
+  mix-blend-mode: normal;
+  transform: scale(1.05);
+}
+
+.cardInfo { text-align: center; width: 100%; border-top: 1px solid rgba(252, 215, 96, 0.1); padding-top: 1rem; transition: all 0.4s ease; }
+.card:hover .cardInfo { border-top-color: rgba(252, 215, 96, 0.4); }
+.cardInfo h3 { color: var(--amarelo-dourado); font-size: 1.3rem; margin-bottom: 0.2rem; }
+.cardInfo span { color: var(--terracota); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .imageWrapper { height: 300px; } }
+@media (max-width: 768px) { .evidence { padding: 6rem 1.25rem; } .subtitle { margin-bottom: 2rem; } }
