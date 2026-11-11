@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import FloatingImage from './FloatingImage';
+import RitualButton from './RitualButton';
 import styles from '../styles/FinalSection.module.css';
 import { coruja, mandacaru, lantern } from '../assets';
 
@@ -14,6 +15,7 @@ export default function FinalSection({ onInView }) {
     }
   }, [inView, onInView]);
 
+  // Animação compartilhada para garantir sincronia perfeita dos olhos da coruja
   const blinkVariants = {
     open: { opacity: 1, scaleY: 1 },
     blink: {
@@ -79,15 +81,8 @@ export default function FinalSection({ onInView }) {
             Resta descobrir o que a cidade tentou enterrar — e quem sobreviverá para contar a história.
           </p>
 
-          <motion.div 
-            whileHover={{ scale: 1.08, rotate: -1 }} 
-            whileTap={{ scale: 0.95 }}
-            style={{ marginTop: '2rem' }}
-          >
-            <a href="#jogar" className={`${styles.cta} btn-gothic`} aria-label="Jogar Presságio agora">
-              Iniciar o Ritual
-            </a>
-          </motion.div>
+          {/* O Botão Interativo de Materialização */}
+          <RitualButton />
 
           <p className={styles.small}>
             Rafael. Maria Clara. A avó. A rádio. O rio. <br />

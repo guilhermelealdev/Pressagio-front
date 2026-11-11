@@ -110,3 +110,19 @@ export const bandeirinha = enc(`<svg xmlns="http://www.w3.org/2000/svg" viewBox=
 export const foto1 = enc(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><rect width="300" height="400" fill="#dcd3c0"/><rect x="20" y="20" width="260" height="300" fill="#3A230A"/><path d="M150 180 Q100 250 200 250 Q150 180 150 180 Z" fill="#A4530C"/><text x="150" y="360" font-family="serif" font-size="20" fill="#3A230A" text-anchor="middle" opacity="0.5">FOTOGRAFIA 1984</text></svg>`);
 
 export const doc1 = enc(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400"><rect width="300" height="400" fill="#f4ebd8"/><line x1="40" y1="80" x2="260" y2="80" stroke="#A4530C" stroke-width="2"/><line x1="40" y1="120" x2="240" y2="120" stroke="#3A230A" stroke-width="1"/><line x1="40" y1="150" x2="260" y2="150" stroke="#3A230A" stroke-width="1"/><line x1="40" y1="180" x2="200" y2="180" stroke="#3A230A" stroke-width="1"/><circle cx="220" cy="320" r="40" fill="none" stroke="#A4530C" stroke-width="3" opacity="0.3"/><text x="220" y="325" font-family="serif" font-size="12" fill="#A4530C" text-anchor="middle" opacity="0.5">CONFIDENCIAL</text></svg>`);
+
+export const owlIcon = enc(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#FCD760" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+  <!-- Corpo arredondado -->
+  <path d="M 40 150 C 30 100 40 40 100 40 C 160 40 170 100 160 150 C 150 180 50 180 40 150 Z" />
+  <!-- Olhos grandes -->
+  <circle cx="70" cy="90" r="25" />
+  <circle cx="130" cy="90" r="25" />
+  <!-- Pupilas preenchidas de dourado -->
+  <circle cx="70" cy="90" r="10" fill="#FCD760" />
+  <circle cx="130" cy="90" r="10" fill="#FCD760" />
+  <!-- Bico -->
+  <path d="M 100 110 L 85 130 L 115 130 Z" fill="#FCD760" />
+  <!-- Orelhas -->
+  <path d="M 50 60 L 70 40 L 80 60" />
+  <path d="M 120 60 L 130 40 L 150 60" />
+</svg>`);
